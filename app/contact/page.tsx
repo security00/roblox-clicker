@@ -14,7 +14,7 @@ export default function ContactPage() {
       <section className="container mx-auto px-4 py-8">
         <h1 className="text-3xl md:text-4xl font-bold text-white mb-4" style={{ fontFamily: 'var(--font-press-start)' }}>CONTACT</h1>
         <div className="text-gray-300 space-y-4" style={{ fontFamily: 'var(--font-roboto)' }}>
-          <p>For inquiries, feature requests, or takedowns, please email: support@example.com</p>
+          <p>For inquiries, feature requests, or takedowns, please email: support@roblox-clicker.net</p>
           <p>We usually reply within 3鈥? business days.</p>
         </div>
       </section>
