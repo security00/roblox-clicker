@@ -1,26 +1,84 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #1a1a1a;
+  --foreground: #ffffff;
+  --primary-red: #e63946;
+  --dark-red: #c1121f;
+  --light-red: #ff6b7a;
+  --accent-yellow: #ffd700;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-primary: var(--primary-red);
+  --color-primary-dark: var(--dark-red);
+  --color-primary-light: var(--light-red);
+  --color-accent: var(--accent-yellow);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Press Start 2P', 'Courier New', monospace;
+  image-rendering: pixelated;
+  -webkit-font-smoothing: none;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Pixel style elements */
+.pixel-corners {
+  clip-path: polygon(
+    0 4px, 4px 4px, 4px 0,
+    calc(100% - 4px) 0, calc(100% - 4px) 4px, 100% 4px,
+    100% calc(100% - 4px), calc(100% - 4px) calc(100% - 4px), calc(100% - 4px) 100%,
+    4px 100%, 4px calc(100% - 4px), 0 calc(100% - 4px)
+  );
+}
+
+.pixel-border {
+  box-shadow:
+    0 0 0 2px var(--primary-red),
+    0 0 0 4px #000;
+}
+
+/* Headings with pixel style */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Press Start 2P', 'Courier New', monospace;
+  line-height: 1.5;
+  text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.5);
+}
+
+/* Smooth text for body content */
+p, li, span {
+  font-family: 'Roboto', Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Button hover effects */
+.btn-pixel {
+  transition: transform 0.1s ease;
+  image-rendering: pixelated;
+}
+
+.btn-pixel:hover {
+  transform: translateY(-2px);
+}
+
+.btn-pixel:active {
+  transform: translateY(0);
+}
+
+/* Loading animation */
+@keyframes pulse-pixel {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.animate-pulse-pixel {
+  animation: pulse-pixel 1s ease-in-out infinite;
 }

@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Cookie Clicker Lite</title>
+    <style>
+      /* Minimal, self-contained cookie clicker in one file */
+      :root { --bg: #111; --panel: #1b1b1b; --accent: #e6a700; --text: #eee; }
+      html, body { height: 100%; margin: 0; background: var(--bg); color: var(--text); font-family: Arial, Helvetica, sans-serif; }
+      .wrap { display: grid; grid-template-columns: 2fr 1fr; gap: 12px; height: 100%; box-sizing: border-box; padding: 12px; }
+      .center { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; }
+      .cookie-btn { cursor: pointer; font-size: 18px; padding: 16px 24px; border: 3px solid var(--accent); background: #222; color: var(--text); font-weight: bold; }
+      .cookie { font-size: 64px; line-height: 1; }
+      .stats { display: flex; gap: 16px; font-size: 14px; }
+      .side { display: flex; flex-direction: column; gap: 8px; }
+      .card { background: var(--panel); border: 2px solid #333; padding: 10px; }
+      .upg { display: block; width: 100%; text-align: left; background: #222; color: var(--text); border: 2px solid var(--accent); padding: 8px; margin: 6px 0; cursor: pointer; }
+      .upg:disabled { opacity: 0.6; cursor: not-allowed; }
+      .title { color: var(--accent); font-weight: bold; margin-bottom: 6px; }
+      .small { font-size: 12px; color: #bbb; }
+      @media (max-width: 768px) { .wrap { grid-template-columns: 1fr; } }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="center">
+        <div class="stats" id="stats"></div>
+        <button class="cookie-btn" id="clickBtn">
+          <span class="cookie">🍪</span>
+          <span style="margin-left:8px">CLICK (+<span id="perClick">1</span>)</span>
+        </button>
+        <div class="small">Click the cookie to earn cookies. Buy upgrades to automate production!</div>
+      </div>
+      <div class="side">
+        <div class="card">
+          <div class="title">UPGRADES</div>
+          <button class="upg" id="uClick"></button>
+          <button class="upg" id="uAuto"></button>
+          <button class="upg" id="uGrandma"></button>
+          <button class="upg" id="reset">Reset Progress</button>
+        </div>
+        <div class="card small">Cookie Clicker Lite — local, offline, embeddable demo (no external assets).</div>
+      </div>
+    </div>
+    <script>
+      // Simple cookie clicker logic
+      let cookies = 0;
+      let perClick = 1;
+      let cps = 0; // cookies per second
+      let lvlClick = 0, lvlAuto = 0, lvlGrandma = 0;
+
+      const clickCost = () => Math.floor(20 * Math.pow(1.5, lvlClick));
+      const autoCost  = () => Math.floor(50 * Math.pow(1.6, lvlAuto));
+      const grandmaCost = () => Math.floor(150 * Math.pow(1.6, lvlGrandma));
+
+      const stats = document.getElementById('stats');
+      const perClickEl = document.getElementById('perClick');
+      const uClick = document.getElementById('uClick');
+      const uAuto = document.getElementById('uAuto');
+      const uGrandma = document.getElementById('uGrandma');
+      const resetBtn = document.getElementById('reset');
+      const clickBtn = document.getElementById('clickBtn');
+
+      function fmt(n){ return n.toLocaleString(); }
+
+      function render(){
+        stats.textContent = `Cookies: ${fmt(cookies)}  |  +${perClick}/click  |  ${fmt(cps)}/s`;
+        perClickEl.textContent = perClick;
+        uClick.textContent = `Click Power Lv.${lvlClick} — Cost: ${fmt(clickCost())}`;
+        uAuto.textContent = `Auto Oven Lv.${lvlAuto} (+1/s) — Cost: ${fmt(autoCost())}`;
+        uGrandma.textContent = `Grandma Lv.${lvlGrandma} (+5/s) — Cost: ${fmt(grandmaCost())}`;
+        uClick.disabled = cookies < clickCost();
+        uAuto.disabled = cookies < autoCost();
+        uGrandma.disabled = cookies < grandmaCost();
+      }
+
+      clickBtn.addEventListener('click', ()=>{ cookies += perClick; render(); });
+      uClick.addEventListener('click', ()=>{ if(cookies>=clickCost()){ cookies -= clickCost(); lvlClick++; perClick++; render(); }});
+      uAuto.addEventListener('click', ()=>{ if(cookies>=autoCost()){ cookies -= autoCost(); lvlAuto++; cps += 1; render(); }});
+      uGrandma.addEventListener('click', ()=>{ if(cookies>=grandmaCost()){ cookies -= grandmaCost(); lvlGrandma++; cps += 5; render(); }});
+      resetBtn.addEventListener('click', ()=>{ cookies=0; perClick=1; cps=0; lvlClick=0; lvlAuto=0; lvlGrandma=0; render(); });
+
+      setInterval(()=>{ if(cps>0){ cookies += cps; render(); } }, 1000);
+      render();
+    </script>
+  </body>
+  </html>
