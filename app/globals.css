@@ -82,3 +82,8 @@ p, li, span {
 .animate-pulse-pixel {
   animation: pulse-pixel 1s ease-in-out infinite;
 }
+/* Ensure emojis render correctly across platforms */
+.emoji {
+  font-family: 'Segoe UI Emoji', 'Apple Color Emoji', 'Noto Color Emoji', 'Twemoji Mozilla', 'EmojiOne Color', 'Roboto', Arial, sans-serif;
+  font-variant-emoji: emoji;
+}

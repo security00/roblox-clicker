@@ -47,6 +47,11 @@ export default function GameEmbedWithFallback({ title, src, theme = "default", t
   return (
     // Use absolute fill so it works reliably inside aspect-ratio wrappers
     <div className="absolute inset-0 flex flex-col">
+    <noscript>
+      <div className="p-3 text-xs text-gray-200 bg-black/60" style={{ fontFamily: 'var(--font-roboto)' }}>
+        JavaScript is disabled. The interactive embed requires JS. You can read about {title} below or play the Local Mode when JS is enabled.
+      </div>
+    </noscript>
       <div className="flex items-center justify-between p-2 text-xs bg-black/50 text-gray-200" style={{ fontFamily: 'var(--font-roboto)' }}>
         <div className="flex items-center gap-2">
           <span className="font-bold" style={{ fontFamily: 'var(--font-press-start)', fontSize: '0.7rem' }}>{title}</span>
@@ -88,4 +93,5 @@ export default function GameEmbedWithFallback({ title, src, theme = "default", t
     </div>
   );
 }
+
 

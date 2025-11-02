@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 import SimpleClicker from "./SimpleClicker";
@@ -12,7 +12,7 @@ interface Props {
 }
 
 // Switcher between third-party iframe and local fallback.
-export default function EmbedGameSwitcher({ title, iframeSrc, theme = "default", defaultMode = "local" }: Props) {
+export default function EmbedGameSwitcher({ title, iframeSrc, theme = "default", defaultMode = "embed" }: Props) {
   const [mode, setMode] = useState<"embed" | "local">(defaultMode);
   const [overlayGone, setOverlayGone] = useState(false);
 
@@ -55,7 +55,14 @@ export default function EmbedGameSwitcher({ title, iframeSrc, theme = "default",
             loading="lazy"
             title={title + " Game"}
           />
-        </div>
+                  <noscript>
+            <div className="absolute inset-0 z-20 flex items-center justify-center text-white bg-black/70 p-4">
+              <p style={{ fontFamily: 'var(--font-roboto)' }}>
+                JavaScript is disabled. You can still learn about {title}. Try Local Mode for instant play.
+                <a href="?local=1" className="underline ml-1">Switch</a>
+              </p>
+            </div>
+          </noscript>        </div>
       ) : (
         <div className="relative bg-black border-4 border-[#e63946] aspect-video overflow-hidden">
           <SimpleClicker title={title} theme={theme} />
@@ -64,3 +71,5 @@ export default function EmbedGameSwitcher({ title, iframeSrc, theme = "default",
     </div>
   );
 }
+
+

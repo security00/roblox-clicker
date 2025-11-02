@@ -1,7 +1,7 @@
-﻿import type { Metadata } from 'next';
-import GameEmbedWithFallback from '../../components/GameEmbedWithFallback';
-export const dynamic = 'force-static';
-
+﻿import type { Metadata } from "next";
+import GameEmbedWithFallback from "../../components/GameEmbedWithFallback";
+import GameCard from "../../components/GameCard";
+export const dynamic = "force-static";
 
 export const metadata: Metadata = {
   title: 'Money Clicker - Free Online Clicker Game',
@@ -16,9 +16,15 @@ export const metadata: Metadata = {
 };
 
 export default function MoneyClickerPage() {
+  const relatedGames = [
+    { title: 'Cookie Clicker Roblox - Bake & Build Empire', slug: 'cookie-clicker', description: 'Bake cookies, unlock upgrades, hire grandmas, and grow your cookie empire.', plays: '5.1M', rating: '4.9' },
+    { title: 'Roblox Clicker - Play Free Online Clicker Game', slug: 'roblox-clicker', description: 'Click to earn coins, buy upgrades and auto-clickers, and prestige for permanent boosts.', plays: '2.5M', rating: '4.8' },
+    { title: 'Burger Clicker - Free Online Clicker Game', slug: 'burger-clicker', description: 'Grill burgers, upgrade equipment, hire staff, and open franchises.', plays: '1.3M', rating: '4.4' }
+  ];
   return (
     <div className="bg-[#1a1a1a]">
-      <section className="container mx-auto px-4 py-8">
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({"@context":"https://schema.org","@type":"VideoGame","name":"Money Clicker","description":"Play Money Clicker online. Click to grow your cash, buy upgrades and auto income, and prestige for permanent multipliers in your browser.","genre":"Clicker Game","gamePlatform":"Web Browser","author":{"@type":"Organization","name":"Roblox Clicker"}}) }} />
+<section className="container mx-auto px-4 py-8">
         <div className="grid lg:grid-cols-3 gap-6">
           <div className="lg:col-span-2">
             <h1 className="text-3xl md:text-4xl font-bold text-white mb-4" style={{ fontFamily: 'var(--font-press-start)' }}>
@@ -35,6 +41,19 @@ export default function MoneyClickerPage() {
                 theme="idle"
                 timeoutMs={3000}
               />
+            </div>
+            <div className="bg-[#2a2a2a] border-2 border-[#e63946] p-6 mb-6">
+              <h2 className="text-2xl font-bold text-[#ffd700] mb-4" style={{ fontFamily: 'var(--font-press-start)' }}>
+                About Money Clicker
+              </h2>
+              <div className="text-gray-300 space-y-4" style={{ fontFamily: 'var(--font-roboto)' }}>
+                <p>
+                  Money Clicker is a classic incremental game about growing your cash. Start by clicking to earn coins, then invest in upgrades and auto income to scale up.
+                </p>
+                <p>
+                  Stack global multipliers and prestige when progress slows to gain permanent bonuses for your next run. If the external embed is slow in your region, you can switch to Local Mode.
+                </p>
+              </div>
             </div>
           </div>
 
@@ -62,9 +81,22 @@ export default function MoneyClickerPage() {
           </div>
         </div>
       </section>
+      <section className="container mx-auto px-4 py-12">
+        <h2 className="text-3xl font-bold text-white mb-8 text-center" style={{ fontFamily: 'var(--font-press-start)' }}>
+          MORE CLICKER GAMES
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {relatedGames.map((game) => (<GameCard key={game.slug} {...game} />))}
+        </div>
+      </section>
     </div>
   );
 }
+
+
+
+
+
 
 
 

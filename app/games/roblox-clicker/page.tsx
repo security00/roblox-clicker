@@ -84,7 +84,7 @@ export default function RaceClickerPage() {
                 title="Roblox Clicker"
                 iframeSrc="https://scratch.mit.edu/projects/944565612/embed"
                 theme="default"
-                defaultMode="local"
+                defaultMode="embed"
               />
             </div>
 
@@ -151,6 +151,26 @@ export default function RaceClickerPage() {
               </div>
             </div>
         </div>
+          <div className="lg:col-span-1">
+            <div className="sticky top-24">
+              <div className="bg-[#2a2a2a] border-2 border-[#e63946] p-4 mb-6">
+                <h3 className="text-lg font-bold text-[#ffd700] mb-3" style={{ fontFamily: 'var(--font-press-start)', fontSize: '0.875rem' }}>TIPS</h3>
+                <ul className="space-y-2 text-sm text-gray-300" style={{ fontFamily: 'var(--font-roboto)' }}>
+                  <li className="flex gap-2"><span className="text-[#e63946]">-</span><span>Prioritize per-click power and your first auto-clicker</span></li>
+                  <li className="flex gap-2"><span className="text-[#e63946]">-</span><span>Alternate between active clicks and passive income</span></li>
+                  <li className="flex gap-2"><span className="text-[#e63946]">-</span><span>Prestige when upgrades become slow and costly</span></li>
+                </ul>
+              </div>
+              <div className="bg-[#2a2a2a] border-2 border-[#e63946] p-4">
+                <h3 className="text-lg font-bold text-[#ffd700] mb-3" style={{ fontFamily: 'var(--font-press-start)', fontSize: '0.875rem' }}>GAME STATS</h3>
+                <div className="space-y-3 text-sm" style={{ fontFamily: 'var(--font-roboto)' }}>
+                  <div className="flex justify-between"><span className="text-gray-400">Mode:</span><span className="text-white font-bold">Embed</span></div>
+                  <div className="flex justify-between"><span className="text-gray-400">Playability:</span><span className="text-white font-bold">External</span></div>
+                  <div className="flex justify-between"><span className="text-gray-400">Category:</span><span className="text-white font-bold">Incremental</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -167,6 +187,7 @@ export default function RaceClickerPage() {
     </div>
   );
 }
+
 
 
 

@@ -20,7 +20,8 @@ export default function MilkClickerPage() {
 
   return (
     <div className="bg-[#1a1a1a]">
-      <section className="container mx-auto px-4 py-8">
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({"@context":"https://schema.org","@type":"VideoGame","name":"Milk Clicker","description":"Play Milk Clicker online. Milk cows, upgrade barns, hire helpers, and multiply production. Switch to Local Mode for instant, smooth play.","genre":"Clicker Game","gamePlatform":"Web Browser","author":{"@type":"Organization","name":"Roblox Clicker"}}) }} />
+<section className="container mx-auto px-4 py-8">
         <div className="grid lg:grid-cols-3 gap-6">
           <div className="lg:col-span-2">
             <h1 className="text-3xl md:text-4xl font-bold text-white mb-4" style={{ fontFamily: 'var(--font-press-start)' }}>MILK CLICKER</h1>
@@ -78,6 +79,8 @@ export default function MilkClickerPage() {
     </div>
   );
 }
+
+
 
 
 

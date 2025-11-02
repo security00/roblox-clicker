@@ -1,8 +1,8 @@
-﻿import type { Metadata } from 'next';
-import GameCard from '../../components/GameCard';
-import GameEmbedWithFallback from '../../components/GameEmbedWithFallback';
-export const dynamic = 'force-static';
-
+﻿import type { Metadata } from "next";
+import GameCard from "../../components/GameCard";
+import GameEmbedWithFallback from "../../components/GameEmbedWithFallback";
+import FeatureIcon from "../../components/FeatureIcon";
+export const dynamic = "force-static";
 
 export const metadata: Metadata = {
   title: 'Cookie Clicker Roblox - Bake & Build Empire',
@@ -81,7 +81,7 @@ export default function CookieClickerPage() {
                 <h3 className="text-lg font-bold text-[#ffd700] mb-3" style={{ fontFamily: 'var(--font-press-start)', fontSize: '0.875rem' }}>GAME STATS</h3>
                 <div className="space-y-3 text-sm" style={{ fontFamily: 'var(--font-roboto)' }}>
                   <div className="flex justify-between"><span className="text-gray-400">Total Plays:</span><span className="text-white font-bold">5.1M+</span></div>
-                  <div className="flex justify-between"><span className="text-gray-400">Rating:</span><span className="text-white font-bold">猸?4.9/5</span></div>
+                  <div className="flex justify-between"><span className="text-gray-400">Rating:</span><span className="text-white font-bold flex items-center gap-1"><FeatureIcon name="star" className="text-[#ffd700]" /> 4.9/5</span></div>
                   <div className="flex justify-between"><span className="text-gray-400">Category:</span><span className="text-white font-bold">Incremental</span></div>
                 </div>
               </div>
@@ -99,6 +99,9 @@ export default function CookieClickerPage() {
     </div>
   );
 }
+
+
+
 
 
 

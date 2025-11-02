@@ -1,6 +1,7 @@
 ﻿import type { Metadata } from 'next';
 import GameCard from './components/GameCard';
-import AdSlot from './components/AdSlot';
+
+import FeatureIcon from './components/FeatureIcon';
 export const dynamic = 'force-static';
 
 
@@ -159,56 +160,56 @@ export default function Home() {
               </h2>
               <div className="grid md:grid-cols-2 gap-4 text-gray-300" style={{ fontFamily: 'var(--font-roboto)' }}>
                 <div className="flex gap-3">
-                  <span className="text-[#e63946] text-2xl">馃幃</span>
+                  <FeatureIcon name="gamepad" className="text-[#e63946] text-2xl" />
                   <div>
                     <h3 className="font-bold text-white mb-1">Simple Yet Addictive</h3>
                     <p className="text-sm">Easy to learn but challenging to master, perfect for all skill levels.</p>
                   </div>
                 </div>
                 <div className="flex gap-3">
-                  <span className="text-[#e63946] text-2xl">*</span>
+                  <FeatureIcon name="star" className="text-[#e63946] text-2xl" />
                   <div>
                     <h3 className="font-bold text-white mb-1">Fast-Paced Action</h3>
                     <p className="text-sm">Quick clicking mechanics with instant gratification and rewards.</p>
                   </div>
                 </div>
                 <div className="flex gap-3">
-                  <span className="text-[#e63946] text-2xl">馃殌</span>
+                  <FeatureIcon name="rocket" className="text-[#e63946] text-2xl" />
                   <div>
                     <h3 className="font-bold text-white mb-1">Progressive Upgrades</h3>
                     <p className="text-sm">Unlock powerful upgrades and multipliers as you advance.</p>
                   </div>
                 </div>
                 <div className="flex gap-3">
-                  <span className="text-[#e63946] text-2xl">馃挵</span>
+                  <FeatureIcon name="coin" className="text-[#e63946] text-2xl" />
                   <div>
                     <h3 className="font-bold text-white mb-1">Idle Mechanics</h3>
                     <p className="text-sm">Earn coins even when you're away with auto-clickers.</p>
                   </div>
                 </div>
                 <div className="flex gap-3">
-                  <span className="text-[#e63946] text-2xl">馃弳</span>
+                  <FeatureIcon name="trophy" className="text-[#e63946] text-2xl" />
                   <div>
                     <h3 className="font-bold text-white mb-1">Achievements System</h3>
                     <p className="text-sm">Complete challenges and earn special rewards and bonuses.</p>
                   </div>
                 </div>
                 <div className="flex gap-3">
-                  <span className="text-[#e63946] text-2xl">馃摫</span>
+                  <FeatureIcon name="device" className="text-[#e63946] text-2xl" />
                   <div>
                     <h3 className="font-bold text-white mb-1">Cross-Platform Play</h3>
                     <p className="text-sm">Play on desktop, mobile, or tablet with full compatibility.</p>
                   </div>
                 </div>
                 <div className="flex gap-3">
-                  <span className="text-[#e63946] text-2xl">馃帹</span>
+                  <FeatureIcon name="palette" className="text-[#e63946] text-2xl" />
                   <div>
                     <h3 className="font-bold text-white mb-1">Pixel Art Style</h3>
                     <p className="text-sm">Beautiful retro graphics with modern polish and effects.</p>
                   </div>
                 </div>
                 <div className="flex gap-3">
-                  <span className="text-[#e63946] text-2xl">馃啌</span>
+                  <FeatureIcon name="free" className="text-[#e63946] text-2xl" />
                   <div>
                     <h3 className="font-bold text-white mb-1">100% Free</h3>
                     <p className="text-sm">No downloads, no payments, just pure clicking fun!</p>
@@ -262,7 +263,7 @@ export default function Home() {
                   </div>
                   <div className="flex justify-between">
                     <span className="text-gray-400">Rating:</span>
-                    <span className="text-white font-bold">猸?4.9/5</span>
+                    <span className="text-white font-bold flex items-center gap-1"><FeatureIcon name="star" className="text-[#ffd700]" /> 4.9/5</span>
                   </div>
                   <div className="flex justify-between">
                     <span className="text-gray-400">Category:</span>
@@ -328,6 +329,9 @@ export default function Home() {
     </div>
   );
 }
+
+
+
 
 
 

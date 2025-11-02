@@ -10,15 +10,15 @@ export const metadata: Metadata = {
 };
 
 export default function ClickerCategoryPage() {
-  const allGames = [
-    { title: 'Clicker Games - Free Online Collection', slug: 'roblox-clicker', description: 'Browse our free online clicker games. Play Roblox Clicker, Cookie Clicker, Money Clicker, and more. Start clicking, unlock upgrades, and enjoy idle fun.', plays: '2.5M plays', rating: '4.8' },
-    { title: 'Clicker Games - Free Online Collection', slug: 'cookie-clicker', description: 'Browse our free online clicker games. Play Roblox Clicker, Cookie Clicker, Money Clicker, and more. Start clicking, unlock upgrades, and enjoy idle fun.', plays: '5.1M plays', rating: '4.9' },
-    { title: 'Clicker Games - Free Online Collection', slug: 'money-clicker', description: 'Browse our free online clicker games. Play Roblox Clicker, Cookie Clicker, Money Clicker, and more. Start clicking, unlock upgrades, and enjoy idle fun.', plays: '1.8M plays', rating: '4.7' },
-    { title: 'Clicker Games - Free Online Collection', slug: 'fortnite-clicker', description: "Tap to earn V-Bucks, unlock upgrades, and dominate the island!", plays: '3.2M plays', rating: '4.6' },
-    { title: 'Clicker Games - Free Online Collection', slug: 'mcdonald-clicker', description: 'Browse our free online clicker games. Play Roblox Clicker, Cookie Clicker, Money Clicker, and more. Start clicking, unlock upgrades, and enjoy idle fun.', plays: '1.5M plays', rating: '4.5' },
-    { title: 'Clicker Games - Free Online Collection', slug: 'milk-clicker', description: 'Browse our free online clicker games. Play Roblox Clicker, Cookie Clicker, Money Clicker, and more. Start clicking, unlock upgrades, and enjoy idle fun.', plays: '2.1M plays', rating: '4.7' },
-    { title: 'Clicker Games - Free Online Collection', slug: 'fruit-clicker', description: 'Browse our free online clicker games. Play Roblox Clicker, Cookie Clicker, Money Clicker, and more. Start clicking, unlock upgrades, and enjoy idle fun.', plays: '1.9M plays', rating: '4.6' },
-    { title: 'Clicker Games - Free Online Collection', slug: 'burger-clicker', description: 'Browse our free online clicker games. Play Roblox Clicker, Cookie Clicker, Money Clicker, and more. Start clicking, unlock upgrades, and enjoy idle fun.', plays: '1.3M plays', rating: '4.4' },
+    const allGames = [
+    { title: 'Roblox Clicker', slug: 'roblox-clicker', description: 'Click to earn coins, unlock upgrades and auto-clickers, and prestige for permanent boosts.', plays: '2.5M plays', rating: '4.8' },
+    { title: 'Cookie Clicker', slug: 'cookie-clicker', description: 'Bake cookies, unlock upgrades, hire grandmas, and grow your cookie empire.', plays: '5.1M plays', rating: '4.9' },
+    { title: 'Money Clicker', slug: 'money-clicker', description: 'Grow your cash, buy upgrades and auto income, and prestige for multipliers.', plays: '1.8M plays', rating: '4.7' },
+    { title: 'Fortnite Clicker', slug: 'fortnite-clicker', description: 'Tap to earn V-Bucks, unlock upgrades, and dominate the island!', plays: '3.2M plays', rating: '4.6' },
+    { title: 'McDonald Clicker', slug: 'mcdonald-clicker', description: 'Earn cash, upgrade gear, hire staff, and expand your fast-food franchise.', plays: '1.5M plays', rating: '4.5' },
+    { title: 'Milk Clicker', slug: 'milk-clicker', description: 'Milk cows, upgrade barns, hire helpers, and multiply production.', plays: '2.1M plays', rating: '4.7' },
+    { title: 'Fruit Clicker', slug: 'fruit-clicker', description: 'Harvest fruit, upgrade orchards, hire helpers, and unlock new crops.', plays: '1.9M plays', rating: '4.6' },
+    { title: 'Burger Clicker', slug: 'burger-clicker', description: 'Grill burgers, upgrade equipment, hire staff, and open franchises.', plays: '1.3M plays', rating: '4.4' },
   ];
 
   return (
@@ -36,6 +36,7 @@ export default function ClickerCategoryPage() {
     </div>
   );
 }
+
 
 
 
