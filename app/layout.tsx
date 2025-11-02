@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { Press_Start_2P, Roboto } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
@@ -116,3 +116,6 @@ export default function RootLayout({
     </html>
   );
 }
+
+
+
