@@ -73,7 +73,6 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <link rel="icon" href="/logo.png" />
-        <link rel="canonical" href="https://roblox-clicker.net/" />
         {/* Google Analytics */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-FHVRNG0TPZ"
