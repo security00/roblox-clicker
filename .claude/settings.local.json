@@ -24,7 +24,8 @@
       "Bash(netstat:*)",
       "Bash(findstr:*)",
       "Bash(if exist \".next\\dev\\lock\" del /F /Q \".next\\dev\\lock\")",
-      "Bash(del /F /Q \".next\\dev\\lock\" 2)"
+      "Bash(del /F /Q \".next\\dev\\lock\" 2)",
+      "Bash(pkill:*)"
     ],
     "deny": [],
     "ask": []

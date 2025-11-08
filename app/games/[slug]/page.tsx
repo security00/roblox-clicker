@@ -2,13 +2,34 @@
 import SimpleClicker from '../../components/SimpleClicker';
 
 // Allowed dynamic pages that were previously 404s
-const GAME_CONFIG: Record<string, { title: string; desc: string; theme: 'space'|'idle'|'mine'|'hero'|'farm'|'factory'|'default' }> = {};
+const GAME_CONFIG: Record<string, { title: string; desc: string; theme: 'space'|'idle'|'mine'|'hero'|'farm'|'factory'|'default' }> = {
+  'candy-clicker': {
+    title: 'Candy Clicker',
+    desc: 'Click to collect candies, unlock sweet upgrades, and build your candy empire.',
+    theme: 'default'
+  },
+  'game': {
+    title: 'Game',
+    desc: 'Instant local clicker mode. No downloads or external embeds.',
+    theme: 'default'
+  }
+};
 
 type AllowedSlug = string;
 
-export async function generateMetadata({ params }: { params?: { slug?: string } }): Promise<Metadata> {
-  const computeTitle = (s: string) => s.replace(/-/g, ' ').replace(/\b\w/g, (m) => m.toUpperCase());
-  const slug = typeof params?.slug === 'string' ? params!.slug : 'game';
+export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+  const computeTitle = (s: string | undefined) => {
+    if (!s) return 'Game';
+    return s.replace(/-/g, ' ').replace(/\b\w/g, (m) => m.toUpperCase());
+  };
+  const slug = params?.slug;
+  if (!slug) {
+    return {
+      title: 'Game - Free Online Clicker Game',
+      description: 'Play a lightweight clicker game that runs instantly in your browser.',
+      alternates: { canonical: `https://roblox-clicker.net/games/game` },
+    } satisfies Metadata;
+  }
   const cfg = GAME_CONFIG[slug as AllowedSlug];
   const title = (cfg?.title ?? computeTitle(slug));
   const desc = cfg?.desc ?? `Play ${title} - a lightweight clicker that runs instantly in your browser.`;
@@ -20,9 +41,16 @@ export async function generateMetadata({ params }: { params?: { slug?: string } 
   } satisfies Metadata;
 }
 
+export async function generateStaticParams() {
+  return Object.keys(GAME_CONFIG).map(slug => ({ slug }));
+}
+
 export default function DynamicClickerPage({ params }: { params?: { slug?: string } }) {
-  const computeTitle = (s: string) => s.replace(/-/g, ' ').replace(/\b\w/g, (m) => m.toUpperCase());
-  const slug = typeof params?.slug === 'string' ? params!.slug : 'game';
+  const computeTitle = (s: string | undefined) => {
+    if (!s) return 'Game';
+    return s.replace(/-/g, ' ').replace(/\b\w/g, (m) => m.toUpperCase());
+  };
+  const slug = params?.slug || 'game';
   const cfg = GAME_CONFIG[slug as AllowedSlug] ?? {
     title: computeTitle(slug),
     desc: 'Instant local clicker mode. No downloads or external embeds.',
