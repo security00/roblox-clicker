@@ -59,12 +59,24 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/games/race-clicker" className="text-gray-400 hover:text-[#ffd700] transition-colors">
+                  Race Clicker
+                </Link>
+              </li>
+              <li>
                 <Link href="/games/money-clicker" className="text-gray-400 hover:text-[#ffd700] transition-colors">
                   Money Clicker
                 </Link>
               </li>
               <li>
-                <Link href="/games/fortnite-clicker" className="text-gray-400 hover:text-[#ffd700] transition-colors">Fortnite Clicker</Link>
+                <Link href="/games/fortnite-clicker" className="text-gray-400 hover:text-[#ffd700] transition-colors">
+                  Fortnite Clicker
+                </Link>
+              </li>
+              <li>
+                <Link href="/games/burger-clicker" className="text-gray-400 hover:text-[#ffd700] transition-colors">
+                  Burger Clicker
+                </Link>
               </li>
             </ul>
           </div>
